@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusTube</title>
+
+  <!-- Google Fonts: Cormorant Garamond (serif) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- ── Toast Notification ────────────────────────────────── -->
+  <div id="ft-toast" class="ft-toast"></div>
+
+  <!-- ── Header ─────────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="brand">
+      <img src="../icons/icon48.png" class="brand-icon" alt="FocusTube" />
+      <span class="brand-name">FocusTube</span>
+    </div>
+    <div class="session-badge" id="session-badge">Study #1</div>
+  </header>
+
+  <!-- ── Daily Quote ────────────────────────────────────────── -->
+  <div class="quote-card">
+    <button class="quote-refresh" id="quote-refresh" title="New quote">↻</button>
+    <p class="quote-text" id="quote-text">"The secret of getting ahead is getting started."</p>
+    <p class="quote-author" id="quote-author">— Mark Twain</p>
+  </div>
+
+  <!-- ── Timer Section ──────────────────────────────────────── -->
+  <section class="timer-section">
+
+
+    <!-- Ring Timer -->
+    <div class="ring-wrap">
+      <svg class="ring-svg" viewBox="0 0 130 130">
+        <!-- Track ring -->
+        <circle class="ring-track" cx="65" cy="65" r="52" />
+        <!-- Progress ring -->
+        <circle class="ring-progress" id="ring-progress"
+                cx="65" cy="65" r="52"
+                stroke-dasharray="326.73"
+                stroke-dashoffset="0" />
+      </svg>
+      <div class="timer-display">
+        <div class="timer-time" id="timer-time">25:00</div>
+        <div class="timer-label" id="timer-label">Study Session</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn-icon" id="btn-reset" title="Reset">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+          <path d="M3 3v5h5"/>
+        </svg>
+      </button>
+
+      <button class="btn-primary" id="btn-start">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" id="play-icon">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        <span id="btn-start-text">Start</span>
+      </button>
+
+      <button class="btn-icon" id="btn-skip" title="Skip session">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ── Focus Mode Toggle ───────────────────────────────────── -->
+  <section class="card focus-row">
+    <div class="focus-info">
+      <div class="focus-title">🎯 Focus Mode</div>
+      <div class="focus-sub">Blocks Shorts, sidebar &amp; comments</div>
+    </div>
+    <label class="toggle" id="focus-toggle-label">
+      <input type="checkbox" id="focus-toggle" />
+      <span class="toggle-track">
+        <span class="toggle-thumb"></span>
+      </span>
+    </label>
+  </section>
+
+  <!-- ── Allowlist ──────────────────────────────────────────── -->
+  <section class="card">
+    <div class="section-title">Allowed Channels</div>
+    <div class="input-row">
+      <input
+        type="text"
+        id="channel-input"
+        class="text-input"
+        placeholder="Channel name or @handle..."
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button class="btn-add" id="btn-add-channel">Add</button>
+    </div>
+    <ul class="channel-list" id="channel-list"></ul>
+  </section>
+
+  <!-- ── Stats ──────────────────────────────────────────────── -->
+  <section class="card stats-row">
+    <div class="stat">
+      <div class="stat-value" id="stat-time">0m</div>
+      <div class="stat-label">Studied Today</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-value" id="stat-pomodoros">0</div>
+      <div class="stat-label">Pomodoros</div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    Made with ♥ for focused learners
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
