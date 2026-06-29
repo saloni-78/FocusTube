@@ -34,7 +34,7 @@
 ![Channel blocked overlay](assets/screenshots/channel-blocked.png)
 
 ### Session Complete Notification
-![Notification](assets/screenshots/notifications.png)
+![Notification](assets/screenshots/notification.png)
 
 ---
 
